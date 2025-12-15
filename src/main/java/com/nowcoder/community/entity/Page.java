@@ -1,7 +1,7 @@
 package com.nowcoder.community.entity;
 
 /**
- * 封装分页相关的信息.
+ * todo封装分页相关的信息.
  */
 public class Page {
 

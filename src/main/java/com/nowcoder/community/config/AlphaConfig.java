@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.text.SimpleDateFormat;
-//SSS
+/*
+* 临时演示类
+* */
 @Configuration
 public class AlphaConfig {
 

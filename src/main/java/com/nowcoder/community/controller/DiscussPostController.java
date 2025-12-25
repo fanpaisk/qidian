@@ -59,7 +59,10 @@ public class DiscussPostController implements CommunityConstant {
         if (user == null) {
             return CommunityUtil.getJSONString(403, "你还没有登录哦!");
         }
-
+        /// 添加功能 发帖不能为空
+        if(title == null || title.isEmpty() ||content == null || content.isEmpty()){
+            return CommunityUtil.getJSONString(403, "标题和消息不能为空哦！");
+        }
         DiscussPost post = new DiscussPost();
         post.setUserId(user.getId());
         post.setTitle(title);
@@ -74,6 +77,10 @@ public class DiscussPostController implements CommunityConstant {
                 .setEntityType(ENTITY_TYPE_POST)
                 .setEntityId(post.getId());
         eventProducer.fireEvent(event);
+
+        // 计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, post.getId());
 
         // 报错的情况,将来统一处理.
         return CommunityUtil.getJSONString(0, "发布成功!");
@@ -198,9 +205,9 @@ public class DiscussPostController implements CommunityConstant {
                 .setEntityId(id);
         eventProducer.fireEvent(event);
 
-//        // 计算帖子分数
-//        String redisKey = RedisKeyUtil.getPostScoreKey();
-//        redisTemplate.opsForSet().add(redisKey, id);
+        // 计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, id);
 
         return CommunityUtil.getJSONString(0);
     }

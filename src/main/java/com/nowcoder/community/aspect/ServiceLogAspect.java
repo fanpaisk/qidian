@@ -15,10 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * aop 对所有service开始打日志，记录操作
+ * aop 对所有service开始打日志，记录操作 暂时关闭
  **/
 @Component
-@Aspect
+//@Aspect
 public class ServiceLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceLogAspect.class);

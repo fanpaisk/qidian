@@ -116,15 +116,15 @@ public class ThreadPoolTests {
         sleep(30000);
     }
 
-//    // 5.Spring普通线程池(简化)
-//    @Test
-//    public void testThreadPoolTaskExecutorSimple() {
-//        for (int i = 0; i < 10; i++) {
-//            alphaService.execute1();
-//        }
-//
-//        sleep(10000);
-//    }
+    // 5.Spring普通线程池(简化)
+    @Test
+    public void testThreadPoolTaskExecutorSimple() {
+        for (int i = 0; i < 10; i++) {
+            alphaService.execute1();
+        }
+
+        sleep(10000);
+    }
 
     // 6.Spring定时任务线程池(简化)
     @Test

@@ -98,7 +98,8 @@ public class LoginController implements CommunityConstant {
     /// 这个方法不返回 HTML 或 JSON，而是直接“画”一张验证码图片，通过 HTTP 响应流发送给浏览器，让用户在网页上看到验证码
     /// HttpServletResponse response 这是 Spring 提供的“HTTP 响应对象”，用来向浏览器“写回”数据
     /// 在这个场景中，我们不用返回字符串或视图，而是直接把图片“写”进响应流，所以必须用 HttpServletResponse。
-    // todo redis优化1生成验证码 不用session记验证码 改用cookie+redis，服务器压力小
+    // todo  redis优化1生成验证码 不用session记验证码 改用cookie+redis，服务器压力小
+    /*复习 验证码存在redis  生成验证码时生成凭证 凭证存在cookie 登录时通过cookie拿凭证再从redis拿验证码 与你输入的进行比对*/
     @RequestMapping(path = "/kaptcha", method = RequestMethod.GET)
     public void getKaptcha(HttpServletResponse response/*, HttpSession session*/) {
         // 生成验证码
@@ -141,7 +142,6 @@ public class LoginController implements CommunityConstant {
     {
         /// 检查验证码 优化：不用session记验证码 改用cookie+redis
         // String kaptcha = (String) session.getAttribute("kaptcha");
-        //
         String kaptcha = null;
         if (StringUtils.isNotBlank(kaptchaOwner)) {
             String redisKey = RedisKeyUtil.getKaptchaKey(kaptchaOwner);

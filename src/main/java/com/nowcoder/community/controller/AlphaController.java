@@ -19,7 +19,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/alpha")
 public class AlphaController {
-
+//    sssssssssssssssssssssssssssssssss这是主干
     @Autowired
     private AlphaService alphaService;
 

@@ -147,7 +147,7 @@ public class MessageController implements CommunityConstant {
         return CommunityUtil.getJSONString(0);
     }
 
-    //todo 这个页面暂时有bug 如果用户没有其中一个系统通知实体 页面会报错
+    //todo 这个页面暂时有bug 如果用户没有其中一个系统通知实体 页面会报错 已解决
     // 还有一个bug 是主页 在index访问主页没问题 在帖子或评论等其他页面点头像访问主页 会报错
     @RequestMapping(path = "/notice/list", method = RequestMethod.GET)
     public String getNoticeList(Model model) {

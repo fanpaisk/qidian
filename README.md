@@ -18,6 +18,7 @@ community 的路径（你自己的）
 MailProperties 的信息（你自己的）
 
 
+
 kafka配置：去你下载kafka的地方
 
 config/zookeeper.properties  找到dataDir 修改成你想将数据存到路径 参考dataDir=g:/Kafka/data3/zookeeper
@@ -30,10 +31,22 @@ elasticsearch配置：去你下载elasticsearch的地方
 log/elasticsearch.yml 找到path.data: G:\ElasticSearch\data 和path.logs: G:\ElasticSearch\logs改成你自己的
         
       
-
+# 启动
 将redis kafka elasticsearch 手动启动后即可本地运行并访问
-kafka运行：
-elasticsearch运行：点击bin/elasticsearch.bat即可
+
+kafka运行：开启命令提示符
+  {
+    需去kafka对应目录启动两个命令
+    先启动bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+    后新开一个窗口后启动bin\windows\kafka-server-start.bat config\server.properties
+    由于在windows不适配，易报错，需常重新配置data
+  }
+
+elasticsearch运行：启动bin/elasticsearch.bat即可
+
+redis运行：启动redis.exe即可
+
+# 演示
 
 
 

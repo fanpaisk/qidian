@@ -10,16 +10,24 @@ elasticsearch elasticsearch-6.4.3
 
 # 配置：
 application.develop.xml配置：去idea的src/main/resource下找到application.develop.xml
-DataSourceProperties 的账号密码（你自己的）        
+
+DataSourceProperties 的账号密码（你自己的）
+
 community 的路径（你自己的）
+
 MailProperties 的信息（你自己的）
 
+
 kafka配置：去你下载kafka的地方
+
 config/zookeeper.properties  找到dataDir 修改成你想将数据存到路径 参考dataDir=g:/Kafka/data3/zookeeper
+
 config/server.properties 找到log.dirs 修改成你想将数据存到路径 参考log.dirs=g:/Kafka/data3/kafka-logs
+
 
 elasticsearch配置：去你下载elasticsearch的地方
 
+log/elasticsearch.yml 找到path.data: G:\ElasticSearch\data 和path.logs: G:\ElasticSearch\logs改成你自己的
         
       
 
